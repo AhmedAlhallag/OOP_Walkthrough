@@ -66,7 +66,16 @@ def findByUn(un, alist):
         if row['un'] == un:
             return i 
     return -1
-        
+"""
+a more versatile version: give both the key and the value
+"""
+
+def findBy(key, value, alist):
+    for i, row in enumerate(alist):
+        if row[key] == value:
+            return i 
+    return -1
+
 
     
 
