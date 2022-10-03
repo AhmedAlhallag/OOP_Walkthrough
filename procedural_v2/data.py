@@ -22,18 +22,26 @@ AND keeping a live copy of the rows/data
 """
 BAD DEISGN: Instead of instantiating the connection each time before performing any of the CRUD operations
 Notice how even the write function now needs a the filename to execute the write operation 
+
+INSTEAD: 
+we can make the prepare_connnection (+ assign the stored_file_path the file path once) happen once;
+probably when the first read operation takes place 
++ make the stored_file_path a global variable that can be accessed by read or write whenever they need
 """
+
+stored_file_path = ""
+
 def prepare_connection(filename):
     stored_file_path = cwd + "\\" + filename
     return stored_file_path
  
 def read(filename):
-    stored_file_path =  prepare_connection(filename)
+    global stored_file_path 
+    stored_file_path = prepare_connection(filename)
     with open(stored_file_path,'r') as afile:
         return json.load(afile)
 
-def write(alist, filename):
-    stored_file_path =  prepare_connection(filename)
+def write(alist):
     with open(stored_file_path,'r') as afile:
         return json.load(afile)
 
