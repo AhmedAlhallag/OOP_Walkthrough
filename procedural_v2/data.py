@@ -20,6 +20,8 @@ AND keeping a live copy of the rows/data
 """
 
 """
+BAD DEISGN: Instead of instantiating the connection each time before performing any of the CRUD operations
+Notice how even the write function now needs a the filename to execute the write operation 
 """
 def prepare_connection(filename):
     stored_file_path = cwd + "\\" + filename
@@ -30,8 +32,11 @@ def read(filename):
     with open(stored_file_path,'r') as afile:
         return json.load(afile)
 
-def write(alist):
-   pass
+def write(alist, filename):
+    stored_file_path =  prepare_connection(filename)
+    with open(stored_file_path,'r') as afile:
+        return json.load(afile)
+
 
     
 
