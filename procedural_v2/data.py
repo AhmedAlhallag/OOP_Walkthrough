@@ -5,6 +5,62 @@ import os
 # print(os.path.dirname(os.path.realpath(__file__)))
 cwd = os.path.dirname(os.path.realpath(__file__))
 
+"""
+What's BAD about this code:
+
+    data.py
+
+1. prepare_connection is invoked every time the read function is executed (read is voilating the DRY principle)
+2. every time the read function is excuted, a global variables is access and re-assigned (globals are the cause of high coupling)
+3. read is highly coupled to prepare_connection, solution? [procedural] by dependdency injection/association; sending the stored_file_path as an argument
+BUT IF WE DID THIS;
+- We would be exposing the driver code to ALOT of data acess logic (weak 'information hiding'),
+a better choice would be to expose the leaast number possible of functions of the data access (i.e.: read -> calls implicitly prepare_connection) 
+4. for the Write function, the read MUST atleast run once (depeendency -> high coupling) 
+5. No single responsipility; data.py is not cohesive; UserExist is a validation logic that is only related to the user table/json file, suggested solution? put it in logic.py?  
+6. every time we need to perform a 'search/findBy' or an "existance check" we need to pass the current users list as an argument
+How easy would it have been if we had that list stored in some sore of state (aka: "object"!)
+
+    logic.py
+     
+1. logic is trying as best as it can to maintain a 'state' of the current user list; 
+while capturing the initial state from the db at the start of the program AND updating the db with the new state by the end of the registration use case
+2. Maintaining state is poorly implemented by depending on 'globals'
+3. register function is not robust (voilating Open/Closed Principle --> 'O' from SOLID, what happens if we need to take email? ps2? phone_number?
+--> How many things will break? How many things need to be changed?  Solution: DTOs
+
+
+    user_interface.py
+
+1. handle_register and handle_register_inputs were highly coupled before refactoring (commit: adding Userexits)
+
+    Control Flow
+    
+The current flow is 'naive' --> depending heavily on the driver code (app.py); the (dependency) control flow between modules is almost zero
+; What if app.py got deleted? --> no system!
+
+
+
+=================================================================================
+What's GOOD about this code:
+
+    user_interface.py
+    
+1. (loose coupling) we segregated the input gathering logic from the creation logic (commit where we added exists and refactored handle_register and handle_register_inputs)
+2. we seperated the validation (database related --> data access layer) logic from the creation logic (buisness use case --> buisness logic) 
+    
+"""
+
+
+
+
+
+
+
+
+
+
+
 
 """
 Design decision:
