@@ -45,6 +45,31 @@ def write(alist):
     with open(stored_file_path,'w') as afile:
         return json.dump(alist,afile)
 
+
+"""
+Note regarding account_is_valid [existance check validation logic]
+when we have a DAO for the user table, we should put the account_is_valid in it
+As long as we don have a dedicated DAO, we can have it in the buisness logic 
+(1. wrong because not a buisness use case, and 2. if it were to be a class, it would probably be a static method)
+
+3. Not to mention that this is a validation against the DB, so it should be in DAO
+
+UPDATE: lets put it in DAO (data.py)
+"""
+
+def exists(key, value, alist):
+    # make sure it validates any given key and value 
+    idx = findBy(key, value, alist)
+    if idx:
+        return True
+    return False
+    
+    
+
+
+    
+
+
 """
 I think findBy or search should be in the Buisnesss logic layer --> WRONG it should be in the data layer 
 UNLESS the search (usually by a certain critera) is a buisenss use case
