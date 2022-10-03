@@ -14,7 +14,13 @@ update_current_users_from_database(users_list_from_database)
 # 3) input and register 
 print(handle_register())
 
-# print(get_users())
+
+print("temp users in logic:")
+print(get_users())
+
+print("users list in db before write:")
+print(read("user.json"))
+
 
 
 # 4) persists changes reflected on the current users list in the logic layer into the users list in the data layer 
@@ -22,6 +28,8 @@ print(handle_register())
 
 write(get_users())
 
+print("users list in db after write:")
+print(read("user.json"))
 
 
 

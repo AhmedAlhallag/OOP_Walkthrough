@@ -42,8 +42,8 @@ def read(filename):
         return json.load(afile)
 
 def write(alist):
-    with open(stored_file_path,'r') as afile:
-        return json.load(afile)
+    with open(stored_file_path,'w') as afile:
+        return json.dump(alist,afile)
 
 
     
