@@ -45,6 +45,28 @@ def write(alist):
     with open(stored_file_path,'w') as afile:
         return json.dump(alist,afile)
 
+"""
+I think findBy or search should be in the Buisnesss logic layer --> WRONG it should be in the data layer 
+UNLESS the search (usually by a certain critera) is a buisenss use case
+"""
+
+"""
+NOTE: you would not need to specify a table as an  argument to the findByUn function (or any CRUD)
+since idealy,  you would a DAO for each table, so the table can be either set via the constructor, or via a connection function
+"""
+
+# How can we improve this to search for any column?
+def findByUn(un, alist):
+    # Note: kda kda the list will be fetched by a SELECT * FROM  <TABLE>
+    # so in procedural: either pass iit to arg
+    # or READ it wtithing the arg --> i think this would be the solution to go for 
+    # or access it from a global var 
+    # in OOP -->  an instance variable does the trick
+    for i, row in enumerate(alist):
+        if row['un'] == un:
+            return i 
+    return -1
+        
 
     
 
