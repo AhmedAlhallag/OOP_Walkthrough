@@ -67,7 +67,7 @@ def findByUn(un, alist):
             return i 
     return -1
 """
-a more versatile version: give both the key and the value
+a more versatile/dynamic version: give both the key and the value
 """
 
 def findBy(key, value, alist):
