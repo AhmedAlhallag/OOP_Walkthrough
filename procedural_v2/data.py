@@ -57,14 +57,13 @@ As long as we don have a dedicated DAO, we can have it in the buisness logic
 UPDATE: lets put it in DAO (data.py)
 """
 
-def exists(key, value, alist):
+def userExists(key, value, alist):
     # make sure it validates any given key and value 
     idx = findBy(key, value, alist)
-    if idx:
+    if idx != -1:
         return True
     return False
-    
-    
+
 
 
     

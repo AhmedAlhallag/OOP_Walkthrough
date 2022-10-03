@@ -8,8 +8,8 @@ def handle_register_inputs():
     return un, ps
 
 
-def handle_register():
-    register(*handle_register_inputs())
+def handle_register(un, ps):
+    register(un, ps)
     return "Your account has been created"
 
 
