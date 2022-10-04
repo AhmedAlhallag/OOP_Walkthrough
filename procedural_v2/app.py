@@ -27,6 +27,18 @@ update_current_users_from_database(users_list_from_database)
 un, ps = handle_register_inputs()
 
 # 4) validate use does not exist 
+"""
+# what do you think of the following snippet? feels off? IT DOES! but why?
+# branching generally can easily fill up your codebase with code smells (unless its a simple if/else)
+IMPORTANT Note:
+- Branching is not always a bad thing/sometimes its a necessity!
+we try to refacfor (reduce) brnaching (if possible) as follows:
+1. First make sure it is within a black-box/unit
+2. if its possible try to use a map (dictionary)
+3. if you found relevance in types/behaviour you can defintely use Inheritance + Abstraction + duck typing
+4. if context fits you choose to use a design pattern 
+Notice how refactoring this branching issue will make the code cleaner, more coheiesive!
+"""
 print(get_users())
 if userExists('un', un, get_users()):
     print('An account with this name already exists.')

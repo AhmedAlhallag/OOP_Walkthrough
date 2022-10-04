@@ -50,7 +50,7 @@ def findBy(key, value, alist):
             return i 
     return -1
 
-
+# put this in logic
 # def userExists(key, value, alist):
 #     # make sure it validates any given key and value 
 # idx = findBy(key, value, alist)
