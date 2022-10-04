@@ -15,6 +15,8 @@ def register(un, ps):
 Validation logic: check account exist before sign up 
 1. Validation against fields of DB (like the one in this case) --> in entity/DAO
 2. Validation against buisness use case logic  --> in control/service
+WRONG
+Check the edit/note on this data.py from v2
 """
 
 

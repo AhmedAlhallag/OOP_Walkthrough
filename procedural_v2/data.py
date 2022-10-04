@@ -134,11 +134,16 @@ AND: the userExists validation is related to a core buisness logic --> register!
 --> DAO should be simple related to only fetching from db and storing into db 
 --> some would say the search/findBy would even be suited in Service layer BLL
 
-============================= this edit can be found in v3
+============================= this edit can be found in v3 (intro to linking data with logic)
 
 
 """
-
+def userExists(key, value, alist):
+    # make sure it validates any given key and value 
+    idx = findBy(key, value, alist)
+    if idx != -1:
+        return True
+    return False
 
     
 
