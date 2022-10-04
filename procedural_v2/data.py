@@ -48,7 +48,17 @@ What's GOOD about this code:
     
 1. (loose coupling) we segregated the input gathering logic from the creation logic (commit where we added exists and refactored handle_register and handle_register_inputs)
 2. we seperated the validation (database related --> data access layer) logic from the creation logic (buisness use case --> buisness logic) 
-    
+2.1 UPDATE: database related validations (field level validations should be done the DB level; via DBMS or via models if the framework is using ORM)
+AND: the userExists validation is related to a core buisness logic --> register! so it should be IN the logic file!
+--> validations related to anything else rather than db level fields should be in Service layer (BLL) 
+;BUT thrown error messages/exepction can be called in the controller, the one who invoke the validation checks from the service layer
+;Controller essentially should work as translator/mediator between routes and (rendered or serialized) responses
+;AND they should be as thing as possible (abiding by the MVC)
+--> field level validations --> DB level or Model (ORM) level [not refering to the entity or POJOs in the second one]
+--> DAO should be simple related to only fetching from db and storing into db 
+--> some would say the search/findBy would even be suited in Service layer BLL
+
+
 """
 
 
@@ -111,15 +121,23 @@ As long as we don have a dedicated DAO, we can have it in the buisness logic
 3. Not to mention that this is a validation against the DB, so it should be in DAO
 
 UPDATE: lets put it in DAO (data.py)
+========================================
+2.1 UPDATE: database related validations (field level validations should be done the DB level; via DBMS or via models if the framework is using ORM)
+AND: the userExists validation is related to a core buisness logic --> register! so it should be IN the logic file!
+(even if it was a validation against the DB; it is still concerning a buisness use case)
+
+--> validations related to anything else rather than db level fields should be in Service layer (BLL) 
+;BUT thrown error messages/exepction can be called in the controller, the one who invoke the validation checks from the service layer
+;Controller essentially should work as translator/mediator between routes and (rendered or serialized) responses
+;AND they should be as thing as possible (abiding by the MVC)
+--> field level validations --> DB level or Model (ORM) level [not refering to the entity or POJOs in the second one]
+--> DAO should be simple related to only fetching from db and storing into db 
+--> some would say the search/findBy would even be suited in Service layer BLL
+
+============================= this edit can be found in v3
+
+
 """
-
-def userExists(key, value, alist):
-    # make sure it validates any given key and value 
-    idx = findBy(key, value, alist)
-    if idx != -1:
-        return True
-    return False
-
 
 
     
