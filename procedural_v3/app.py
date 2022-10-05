@@ -20,6 +20,7 @@ un, ps = handle_register_inputs()
 
 # 4) validate use does not exist 
 # NOTE: if you saw condititional/loops out of no where in your script NOT IN a function --> this is premise that this is a bad design/code smell 
+
 print(get_users())
 if userExists('un', un, get_users()):
     print('An account with this name already exists.')
