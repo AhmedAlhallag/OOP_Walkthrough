@@ -1,7 +1,7 @@
 
 # needed (a dependency) by userExists 
 from data import findBy
-import sys
+# import sys
 
 temp_users = [] 
 
@@ -30,16 +30,26 @@ processing logic + displaying output....voilating SR much?
 """
 
 
-def register(un, ps):
+def register_Voilates_SR(un, ps):
     # global temp_users
     # Note: accessing/reading globals from functions does not require them to be declared within functions; 
     # only re-assignment does (total change to the global)
     if userExists('un', un, temp_users):
         print('[ERROR] An account with this name already exists.')
-        sys.exit()
+        # sys.exit()
     else:
         temp_users.append({'un':un, "ps": ps})
 
+"""
+#logic.3.2.2) 
+"""
+
+def register(un, ps):
+    if userExists('un', un, temp_users):
+        return False
+    temp_users.append({'un':un, "ps": ps})
+    return True
+    
 
 
 """
