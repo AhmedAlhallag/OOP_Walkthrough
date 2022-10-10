@@ -75,7 +75,7 @@ AND: the userExists validation is related to a core buisness logic --> register!
 """
 Design decision:
 - either stored_file_path is a global
-- or to be returned and the return is either passed to read
+- or to be returned and the return  is either passed to read
 - or the read it self is calling the prepare_connection but for that you will be sending the argument the prepare_connection need via the read function
 """
 
