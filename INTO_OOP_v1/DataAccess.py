@@ -12,6 +12,11 @@ First Modification to be done:
 
 """
 
+import json
+
+import os 
+cwd = os.path.dirname(os.path.realpath(__file__))
+
 
 
 class DataAccess:
@@ -39,8 +44,7 @@ class DataAccess:
     --> removing globals: solution 2 using OOP (using instances, instance variables and maintaining a state)
     """
     
-    def __init__(self):
-        pass
-    
+
+    pass
 
     
