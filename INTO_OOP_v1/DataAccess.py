@@ -35,6 +35,8 @@ class DataAccess:
     - read is doing more than one thing!
         1. it prepares the connection
         2. it opens a file and reads from it!     
+        
+    --> removing globals: solution 2 using OOP (using instances, instance variables and maintaining a state)
     """
     
     def __init__(self):

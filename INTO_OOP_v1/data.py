@@ -69,8 +69,10 @@ PROS:
 This way we removed coupling at all, BUT
 
 CONS:
-- we need to rely on the client to prepare the connection (poor encapsulation, poor abstraction/information hiding)
+- we need to rely on the client to prepare the connection (poor encapsulation, poor abstraction)
 A service/module/class needs to be fully packaged! providing minimal interfaces to the user/client script to use
++ Abstraction actually means: reducign complexity by hiding unnecessary details 
+(like the call to prepare_connections; can't this just be ran behind the scenes? as a develoepr i can forget to call it no?) 
 
 - EVERY TIME we want to perform a CRUD operation, we need to pass the path/to/data/file to read and write functions! (voilates DRY)
 
