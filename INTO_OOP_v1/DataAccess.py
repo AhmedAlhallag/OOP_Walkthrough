@@ -32,8 +32,13 @@ class DataAccess:
     How is this bad? it is on the module level, can be accessed and changed by "ANYONE"
     No information hiding! No abstraction! 
     [DEMO] Why are globals are bad and what are side-effects in computer science?
+    - read is doing more than one thing!
+        1. it prepares the connection
+        2. it opens a file and reads from it!     
     """
-    pass
+    
+    def __init__(self):
+        pass
     
 
     
