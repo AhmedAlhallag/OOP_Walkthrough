@@ -13,6 +13,7 @@ def prepare_connection(filename):
  
 def read(filename):
     global stored_file_path 
+    print("testing global is changed:", stored_file_path )
     stored_file_path = prepare_connection(filename)
     with open(stored_file_path,'r') as afile:
         return json.load(afile)
