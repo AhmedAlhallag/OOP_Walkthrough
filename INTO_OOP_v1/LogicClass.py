@@ -29,11 +29,13 @@ class LogicClass:
         self.data_access_obj = DataAccess('user.json') # composition !! (not always is bad , but in this case it is)
         self.temp_users = self.data_access_obj.read()
         
-
     
     # no need for this anymore
     # def update_current_users_from_database(self):
     #     self.temp_users  = read("user.json")
+    """
+    [Activity] Convert the rest of the functions from logic.py into OOP based method inside the LogicClass
+    """
  
 
 """
