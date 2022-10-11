@@ -34,7 +34,7 @@ class LogicClass:
     # def update_current_users_from_database(self):
     #     self.temp_users  = read("user.json")
     """
-    [Activity] Convert the rest of the functions from logic.py into OOP based method inside the LogicClass
+    [Activity] TODO: Convert the rest of the functions from logic.py into OOP based method inside the LogicClass
     """
  
 
