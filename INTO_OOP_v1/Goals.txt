@@ -1,0 +1,16 @@
+[GOAL OF REFACTORING INTO OOP IN THIS CASE STUDY]
+
+
+-> NOT to follow a certain arch. while we are rafactoing into OOP;
+just a naive approach of structuring the code 
+
+[NAIVE STRUCTURING: into files]
+; not working on the level of directory nor on the level of buisness use cases/services/data
+
+
+-> To demonstrate the bitfalls and shortcomings of procedural code and how OOP can reduce these bitfalls.
+
+
+--> Naive implementation of DAO [the generic naive dao]
+
+
