@@ -1,23 +1,26 @@
+# from user_interface import handle_register, handle_register_inputs, initialize
 """
-Clean approach: Enforcing rules to abide by! + The answer: "What goes where!"
-
-Client code Accessing the outermost module only!
-and hence every other module is going one-level deep ONLY inwards 
-(no pypassing is happening! horaay! we managed to build a system respspects the levels and responsibilties of every layer/module)
+See how now we will be replacing his very long pooring impoert witrh a single import of the userinterface class
 """
+from UserInterfaceClass import UserInterface
 
-from user_interface import handle_register, handle_register_inputs, initialize
+ui = UserInterface()
+
+
 
 # 1) initialize the system 
 
-initialize()
+# initialize()
+"""
+No need to initialize anything, taken care of by the object's constructor method.
+"""
 
 # 2) take input
-un, ps = handle_register_inputs()
+un, ps = ui.handle_register_inputs()
 
 # 3) perform registration
 
-msg, do =  handle_register(un, ps)
+msg, do =  ui.handle_register(un, ps)
 
 print(msg)
 do()
