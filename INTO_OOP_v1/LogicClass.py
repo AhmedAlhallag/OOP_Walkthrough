@@ -36,7 +36,38 @@ class LogicClass:
     """
     [Activity] TODO: Convert the rest of the functions from logic.py into OOP based method inside the LogicClass
     """
- 
+    
+    def register(self, un, ps):
+        """
+        2) modify register now based on userExists
+
+        """
+        # if userExists('un', un, temp_users):  # old usage [procedural] 
+        if self.userExists('un', un):    
+            return False
+        self.temp_users.append({'un':un, "ps": ps})
+        self.data_access_obj.write(self.get_users())
+        return True
+    
+
+    # def userExists(key, value, alist): # old signature
+    def userExists(self, key, value):
+        """
+        Benefit of OOP: now we don't need to keep passing the list around to userExists
+        ; it is already read and stored in the object pool of variables
+        
+        1) modify userExists first
+        """
+        # idx = findBy(key, value, alist) # old usage [procedural] 
+        idx = self.data_access_obj.findBy(key, value, self.temp_users)
+        if idx != -1:
+            return True
+        return False
+
+
+    def get_users(self):
+        return self.temp_users 
+    
 
 """
 Driver/Testing/Client Code
