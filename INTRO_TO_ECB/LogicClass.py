@@ -43,14 +43,15 @@ class LogicClass:
         self.blog_author = None 
         
     def register(self, un, ps):
-        if self.userExists('un', un, self.get_users() ):    
+        idx, userFound = self.userExists('un', un, self.get_users())
+        if userFound:     
             return False
         self.temp_users.append({'un':un, "ps": ps})
         self.data_access_obj_user.write(self.get_users()) 
         return True
     
     def userExists(self, key, value, alist):
-        idx = self.data_access_obj.findBy(key, value, alist)
+        idx = self.data_access_obj_user.findBy(key, value, alist)
         if idx != -1:
             return idx, True
         return idx, False
@@ -81,31 +82,35 @@ class LogicClass:
         self.password = None
         self.loggedIn = False
     
+    def check_loggedin(self):
+        return self.loggedIn
+
+    
     # ================ Blog use cases ============== 
     # 1) Creating a post
+    # No need to check the loggedIn in the business logic, just perform the blog post creation regardless 
+    # the UI will be responsible (by checking the logged in session) if a user is logged in or not first before attempting blog post creation
     def createBlogPost(self, title, body):
-        if self.loggedIn:
-            self.blog_title = title
-            self.blog_body = body
-            self.blog_author = self.username
-            self.temp_blogs.append({'title':self.blog_title , "body": self.blog_body, "author": self.blog_author})
-            self.data_access_obj_blog.write(self.get_blogs()) 
-            return True 
-        return False
-    
+        self.blog_title = title
+        self.blog_body = body
+        self.blog_author = self.username
+        self.temp_blogs.append({'title':self.blog_title , "body": self.blog_body, "author": self.blog_author})
+        self.data_access_obj_blog.write(self.get_blogs()) 
+        return True 
+
     # 2) Display Blogs 
     def display_all_blogs_for_a_user(self):
         """
         PROBLEM: we need ALL blogs of a user (not one)
         [Design Discussion]:
         - every domain object's will have variants of search functions, so is it worth it to put all of these different search 
-        functions in one DataAccess ? ANS: No ((check comment in DATAACCESS))
+        functions in one DataAccess ? ANS: No ((check comment in DATA_ACCESS))
         """
-        if self.loggedIn:
-            idx = self.data_access_obj_blog.findBy("author", self.username, self.get_blogs())
-            if idx != -1:
-                blog = self.get_blogs()[idx]
-                return blog
+        idx = self.data_access_obj_blog.findBy("author", self.username, self.get_blogs())
+        if idx != -1:
+            blog = self.get_blogs()[idx]
+            return blog
+        return False 
     
                 
                 

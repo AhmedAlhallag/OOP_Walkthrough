@@ -3,5 +3,10 @@
         "title": "Wandering the earth",
         "content": "Blog Post Content",
         "author": "hallag"
+    },
+    {
+        "title": "Amazing Adventures",
+        "body": "Some kickass Body ",
+        "author": "hallag"
     }
 ]
