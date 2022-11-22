@@ -2,7 +2,6 @@ import sys
 from LogicClass import LogicClass
 class UserInterface:
     """
-    
     [Activity]: attempt to implement this class based on the procidural version
     Note: We now no longer to 'initialze' any list! we seperated that concern
     And placed it into LogicClass

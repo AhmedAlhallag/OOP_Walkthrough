@@ -26,6 +26,7 @@ class LogicClass:
             Using composition --> Tight Coupling 
         """
         # initialization: done automatically once an object of LogicClass is created
+        # no need to synch/upload anything from db!
         self.data_access_obj = DataAccess('user.json') # composition !! (not always is bad , but in this case it is)
         self.temp_users = self.data_access_obj.read()
         

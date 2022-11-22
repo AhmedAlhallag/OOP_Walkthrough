@@ -45,6 +45,9 @@ def register_Voilates_SR(un, ps):
 """
 
 def register(un, ps):
+    """
+    perform ONE responsiblity --> returns a state that conveys that this responslibility (action) is either done or not
+    """
     if userExists('un', un, temp_users):
         return False
     temp_users.append({'un':un, "ps": ps})

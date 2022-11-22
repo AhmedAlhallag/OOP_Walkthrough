@@ -1,5 +1,5 @@
 
-temp_users = [] 
+temp_users = [] # Contains nothing now!!
 
 def update_current_users_from_database(alist_from_database):
     global temp_users
@@ -25,3 +25,5 @@ Check the edit/note on this data.py from v2
 def get_users():
     return temp_users 
     
+
+# print("running from logic.py...")

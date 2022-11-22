@@ -9,7 +9,7 @@ Discussions/brainstorming:
     what do you think of this? 
 
 """
-
+from  accessify import private
 import json
 
 import os 
@@ -19,7 +19,7 @@ cwd = os.path.dirname(os.path.realpath(__file__))
 
 class DataAccess:
     def __init__(self, filename):
-        self.stored_datafile_path = self.prepare_connection(filename)
+        self.__stored_datafile_path = self.prepare_connection(filename)
     
     def prepare_connection(self, filename):
         """
@@ -51,5 +51,3 @@ class DataAccess:
             if row[key] == value:
                 return i 
         return -1
-
-    

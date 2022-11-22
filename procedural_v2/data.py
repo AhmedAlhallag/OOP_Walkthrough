@@ -1,9 +1,4 @@
-import json
-# users_in_database = [{'un':'haidy',"ps":123}]
 
-import os 
-# print(os.path.dirname(os.path.realpath(__file__)))
-cwd = os.path.dirname(os.path.realpath(__file__))
 
 """
 What's BAD about this code:
@@ -94,6 +89,9 @@ we can make the prepare_connnection (+ assign the stored_file_path the file path
 probably when the first read operation takes place 
 + make the stored_file_path a global variable that can be accessed by read or write whenever they need
 """
+import json
+import os 
+cwd = os.path.dirname(os.path.realpath(__file__))
 
 stored_file_path = ""
 
@@ -110,6 +108,8 @@ def read(filename):
 def write(alist):
     with open(stored_file_path,'w') as afile:
         return json.dump(alist,afile)
+
+
 
 
 """
