@@ -1,7 +1,17 @@
 from UserInterface import UserInterface
+from Account import Account
+from Blog import Blog
+from DataAccess import DataAccess
 
 # ================== system Initialization =======================
-ui = UserInterface()
+dataAccessObjectUser = DataAccess("user.json")
+dataAccessObjectBlog = DataAccess("blog.json")
+
+accountObject = Account(dataAccessObjectUser)
+
+blogObject = Blog(dataAccessObjectBlog, accountObject)
+
+ui = UserInterface(accountObject, blogObject)
 # ================== Driver Code ==============================
 
 def display_options():

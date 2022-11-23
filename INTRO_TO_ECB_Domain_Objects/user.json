@@ -1,1 +1,18 @@
-[{"un": "hallag", "ps": 123}, {"un": "haidy", "ps": 12333}, {"un": "karam", "ps": 1222}]
+[
+    {
+        "un": "hallag",
+        "ps": 123
+    },
+    {
+        "un": "haidy",
+        "ps": 12333
+    },
+    {
+        "un": "karam",
+        "ps": 1222
+    },
+    {
+        "un": "tamer",
+        "ps": 1222
+    }
+]

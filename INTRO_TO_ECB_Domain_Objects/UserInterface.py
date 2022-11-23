@@ -1,9 +1,9 @@
 # from LogicClass import LogicClass
 class UserInterface:
 
-    def __init__(self, logicObj):
-        self.logicObj = logicObj
-        # self.logicObj = LogicClass() 
+    def __init__(self, accountObj,blogObject):
+        self.accountObj = accountObj
+        self.blogObject= blogObject
     
     # Register ==================================================================
     def handle_register_inputs(self):
@@ -15,7 +15,7 @@ class UserInterface:
     
 
     def handle_register(self, un, ps): 
-        if self.logicObj.register(un, ps): 
+        if self.accountObj.register(un, ps): 
             return "Your account has been created"
         return "[ERROR] An account with this name already exists."
 
@@ -26,19 +26,19 @@ class UserInterface:
         return un, ps
 
     def handle_login(self, un, ps): 
-        flash_msg, status = self.logicObj.login(un, ps)
+        flash_msg, status = self.accountObj.login(un, ps)
         return flash_msg
 
     def handle_logout(self):
-        self.logicObj.logout()
+        self.accountObj.logout()
         return "Logging Out..."
     
     def check_current_loggedIn(self):
             # Delegation
-        return self.logicObj.check_loggedin()
+        return self.accountObj.check_loggedin()
     
     def get_current_loggedIn_username(self):
-        return self.logicObj.username
+        return self.accountObj.username
         
     
     # Blog ===========================================
@@ -49,17 +49,17 @@ class UserInterface:
     
     def handle_create_post(self):
         flash_msg = "Something went wrong..."
-        if self.logicObj.check_loggedin():
+        if self.accountObj.check_loggedin():
             title, body = self.handle_create_post_inputs()
-            self.logicObj.createBlogPost(title, body)
+            self.blogObject.createBlogPost(title, body)
             flash_msg = "Blog Post Created!"
             return flash_msg
         return flash_msg
    
     def handle_display_blogs(self):
         flash_msg = "Something went wrong..."
-        if self.logicObj.check_loggedin():
-            blogs = self.logicObj.get_all_blogs_for_a_user()
+        if self.accountObj.check_loggedin():
+            blogs = self.blogObject.get_all_blogs_for_a_user()
             flash_msg = ""
             print(blogs)
             for blog in blogs:
