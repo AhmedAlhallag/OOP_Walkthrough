@@ -38,8 +38,16 @@ class DataAccess:
     """
     To accomodate:
     """
-    def findAllBlogsOfUser(self):
-        pass 
+    # def findAllBlogsOfUser(self, key, value, alist):
+    def findAll(self, key, value, alist):
+        matches = []
+        for i, row in enumerate(alist):
+            if row[key] == value:
+                matches.append(row) 
+        return matches
+
+
+    
     """
     One good note: 
     - Put all searching functions as "business use cases" in your business layer, rather than in the DataAccess Layer

@@ -39,7 +39,7 @@ def handle_command(rep):
     elif rep == "CP":
         flash_msg= ui.handle_create_post()
     elif rep == "VB":
-        pass
+        flash_msg = ui.handle_display_blogs()
     return flash_msg
 
 print("Welcome to the best Blog App System! \n(To exit type 'exit')\n")

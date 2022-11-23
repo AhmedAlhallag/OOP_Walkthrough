@@ -88,8 +88,10 @@ class LogicClass:
     
     # ================ Blog use cases ============== 
     # 1) Creating a post
+    """
     # No need to check the loggedIn in the business logic, just perform the blog post creation regardless 
     # the UI will be responsible (by checking the logged in session) if a user is logged in or not first before attempting blog post creation
+    """
     def createBlogPost(self, title, body):
         self.blog_title = title
         self.blog_body = body
@@ -99,18 +101,18 @@ class LogicClass:
         return True 
 
     # 2) Display Blogs 
-    def display_all_blogs_for_a_user(self):
+    def get_all_blogs_for_a_user(self):
         """
         PROBLEM: we need ALL blogs of a user (not one)
         [Design Discussion]:
         - every domain object's will have variants of search functions, so is it worth it to put all of these different search 
         functions in one DataAccess ? ANS: No ((check comment in DATA_ACCESS))
         """
-        idx = self.data_access_obj_blog.findBy("author", self.username, self.get_blogs())
-        if idx != -1:
-            blog = self.get_blogs()[idx]
-            return blog
-        return False 
+        blogs = self.data_access_obj_blog.findAll("author", self.username, self.get_blogs())
+        # if idx != -1:
+        #     blog = self.get_blogs()[idx]
+        #     return blog
+        return blogs 
     
                 
                 

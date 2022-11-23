@@ -1,12 +1,1 @@
-[
-    {
-        "title": "Wandering the earth",
-        "content": "Blog Post Content",
-        "author": "hallag"
-    },
-    {
-        "title": "Amazing Adventures",
-        "body": "Some kickass Body ",
-        "author": "hallag"
-    }
-]
+[{"title": "Wandering the earth", "body": "Blog Post Content", "author": "hallag"}, {"title": "Amazing Adventures", "body": "Some kickass Content!", "author": "hallag"}, {"title": "Karam the wanderer..", "body": "SOME GREAT CONTENT WRITTEN HERE", "author": "karam"}]

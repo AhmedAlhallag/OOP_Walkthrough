@@ -58,6 +58,24 @@ class UserInterface:
             flash_msg = "Blog Post Created!"
             return flash_msg
         return flash_msg
+   
+    def handle_display_blogs(self):
+        flash_msg = "Something went wrong..."
+        if self.logicObj.check_loggedin():
+            blogs = self.logicObj.get_all_blogs_for_a_user()
+            flash_msg = ""
+            print(blogs)
+            for blog in blogs:
+                flash_msg += f""" 
+                ===================================
+                Blog title: {blog['title']},
+                Blog body: {blog['body']}
+                ===================================
+                \n
+                """
+        return flash_msg
+
+        
     
 
     
