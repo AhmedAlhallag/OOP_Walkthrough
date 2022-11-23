@@ -8,7 +8,7 @@ class Blog:
         self.data_access_obj_blog = dataAccessObject
         self.temp_blogs = self.data_access_obj_blog.read() 
         
-        # to access information from from Accont
+        # to access information from from Account
         self.accountObject =  accountObject
         
         self.blog_title = None 

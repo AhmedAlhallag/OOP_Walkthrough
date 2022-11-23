@@ -6,10 +6,10 @@ class LogicClass:
         """
         PROBLEM!
         Cannot refactor to association via this version!!! --> it is a must to eithe:
-        1. create two objects of Logic Class one takes an dataaccessObject of user.json, and the other
-        takes  dataaccessObject of blog.json,
-        2. send a list (or a dict) of  dataaccessObjects and label it as of [0] -> DAOUser and [1] --> DAOBlog; NOT READABLE!
-        3.Best solution -> refactor to ECB and use DAO pattern
+
+        1. send a list (or a dict) of  dataaccessObjects and label it as of [0] -> DAOUser and [1] --> DAOBlog; NOT READABLE!
+        3.Best solution -> Create Domain Objects, Each Domain Object will take a relevnat copy of the DAO 
+        
         """
         
         # Reading all users into a temp_users list 
